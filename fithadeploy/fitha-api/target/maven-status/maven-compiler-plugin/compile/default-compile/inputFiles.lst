@@ -1,0 +1,15 @@
+/fitha-api/src/main/java/com/fita/fita/security/BasicSecurityConfig.java
+/fitha-api/src/main/java/com/fita/fita/controller/ProdutoController.java
+/fitha-api/src/main/java/com/fita/fita/security/UserDetailsServiceImpl.java
+/fitha-api/src/main/java/com/fita/fita/FitaApplication.java
+/fitha-api/src/main/java/com/fita/fita/repository/ProdutoRepository.java
+/fitha-api/src/main/java/com/fita/fita/security/UserDetailsImpl.java
+/fitha-api/src/main/java/com/fita/fita/model/CategoriaModel.java
+/fitha-api/src/main/java/com/fita/fita/repository/CategoriaRepository.java
+/fitha-api/src/main/java/com/fita/fita/model/ProdutoModel.java
+/fitha-api/src/main/java/com/fita/fita/service/UsuarioService.java
+/fitha-api/src/main/java/com/fita/fita/model/UsuarioLogin.java
+/fitha-api/src/main/java/com/fita/fita/controller/UsuarioController.java
+/fitha-api/src/main/java/com/fita/fita/model/UsuarioModel.java
+/fitha-api/src/main/java/com/fita/fita/controller/CategoriaController.java
+/fitha-api/src/main/java/com/fita/fita/repository/UsuarioRepository.java

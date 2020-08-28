@@ -1,0 +1,15 @@
+com/fita/fita/security/UserDetailsImpl.class
+com/fita/fita/controller/CategoriaController.class
+com/fita/fita/FitaApplication.class
+com/fita/fita/model/UsuarioLogin.class
+com/fita/fita/controller/ProdutoController.class
+com/fita/fita/security/BasicSecurityConfig.class
+com/fita/fita/model/CategoriaModel.class
+com/fita/fita/model/UsuarioModel.class
+com/fita/fita/service/UsuarioService.class
+com/fita/fita/controller/UsuarioController.class
+com/fita/fita/security/UserDetailsServiceImpl.class
+com/fita/fita/model/ProdutoModel.class
+com/fita/fita/repository/ProdutoRepository.class
+com/fita/fita/repository/CategoriaRepository.class
+com/fita/fita/repository/UsuarioRepository.class
