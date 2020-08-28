@@ -74,7 +74,7 @@ p{
 	background: linear-gradient(45deg,rgb(224,224,240),rgb(244,243,242)49%,#f09433 50%, #e6683c 62.5%, #dc2743 75%, #cc2366 87.5%, #bc1888 100%);
 	background-size:250%;
 }
-.instagram:hover , .facebook:hover, .whatsapp:hover{
+.instagram:hover , .facebook:hover{
 	background-position: right;
 }
 .facebook{
