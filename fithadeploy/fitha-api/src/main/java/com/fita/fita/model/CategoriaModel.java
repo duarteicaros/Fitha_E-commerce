@@ -26,7 +26,6 @@ public class CategoriaModel {
 
 	@NotNull
 	@Size(min = 3, max = 20)
-	@Column(length = 20, nullable = false)
 	private String nome;
 
 	@OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL)
