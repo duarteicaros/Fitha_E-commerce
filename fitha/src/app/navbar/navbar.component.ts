@@ -1,6 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ɵbypassSanitizationTrustResourceUrl, Input } from '@angular/core';
 import { AuthService } from '../service/auth.service';
-import { Router } from '@angular/router';
+import { Router, ChildActivationStart } from '@angular/router';
+import { UsuarioModel } from '../model/User';
+import { environment } from '../../environments/environment.prod';
+import { elementEventFullName } from '@angular/compiler/src/view_compiler/view_compiler';
+import { style } from '@angular/animations';
+import { AlertasService } from '../service/alertas.service';
+
 
 @Component({
   selector: 'app-navbar',
@@ -9,15 +15,26 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
+  carrinho: boolean = true
+  menuOpen: boolean = false
+
   constructor(
     public auth: AuthService,
-    private router: Router
+    private router: Router,
+    private alert :AlertasService
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+  }
+
+  admin() {
+    return environment.admin
   }
   sair() {
-    this.router.navigate(['/home'])
     localStorage.clear();
+    this.router.navigate(['/home'])
+    environment.admin = false
+    this.alert.showAlerSuccess("Volte sempre!")
   }
+
 }

@@ -1,12 +1,87 @@
 #tituloHeader{
-    max-width: 500px;
+    margin-top: 30px;
+    max-width: 300px;
 }
 .container{
-	position: relative;
-	width: 1200px;
+    position: relative;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-around;
+}
+
+.bg {
+    max-width: 86rem;
+    background-image: url(https://i.imgur.com/s7Jnl4x.png);
+}
+
+.bgg{
+    background-image: url(https://i.imgur.com/s7Jnl4x.png);
+}
+
+a {
+    width: 215px;
+}
+
+/*Text Quem Somos*/
+p {
+    font-size: 19px;
+}
+
+text-center {
+    align-items: center;
+}
+
+h1 {
+    font-size: 30pt;
+}
+
+h2 {
+    color: rgb(179, 18, 179);
+}
+
+
+h3 {
+    font-size: 30pt;
+}
+
+/*Font de Missão e Valores*/
+.text-md-left {
+    font-size: 16pt;
+}
+
+.text-md-right {
+    font-size: 16pt;
+}
+
+.imageobj {
+    width: 100%;
+    height: 80%;   
+}
+
+.p-4 {
+    padding: 1.5rem!important;
+    padding-top: 1.5rem !important;
+    padding-right: 6.5rem !important;
+    padding-bottom: 1.5rem !important;
+    padding-left: 6.5rem !important;
+}
+
+/*Cards de missão, visão e valores*/
+.card {
+    flex-direction: row;
+}
+
+.card-img {
+    align-items: center;
+    width: 70%;
+    height: auto;
+}
+
+.d-flex {
+    position: relative;
+	display: flex;
+	flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 /* FontAwesome for working BootSnippet :> */
@@ -36,7 +111,7 @@ section {
 
 section .section-title {
     text-align: center;
-    color: #007b5e;
+    color: #23cea6;
     margin-bottom: 50px;
     text-transform: uppercase;
 }
@@ -121,6 +196,7 @@ section .section-title {
 .frontside .card,
 .backside .card {
     min-height: 312px;
+    min-width: 210px;
 }
 
 .backside .card a {
@@ -134,11 +210,15 @@ section .section-title {
 }
 
 .frontside .card .card-body img {
-    width: 120px;
-    height: 120px;
+    width: 160px;
+    height: 160px;
     border-radius: 50%;
 }
 
 .mat {
     font-size: 23px;
 }
+p{
+    text-align: justify;
+}
+

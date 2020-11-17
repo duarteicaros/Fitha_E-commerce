@@ -1,9 +1,9 @@
 import { ProdutoModel } from "./Produto";
 
-export class CategoriaModel{
-    public id:number;
-    public nome: string;
-    public produto: ProdutoModel[];
+export class CategoriaModel {
+    public id: number;
+    public categoriaNome: string;
+    //public produto: ProdutoModel[];
 
 
 }

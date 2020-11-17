@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import{CategoriaModel} from '../model/Categoria'
-import{CategoriaService} from '../service/categoria.service'
+import { CategoriaModel } from '../model/Categoria'
+import { CategoriaService } from '../service/categoria.service'
 import { ProdutoModel } from '../model/Produto';
-import{ProdutoService} from '../service/produto.service'
+import { ProdutoService } from '../service/produto.service'
+import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-produtos',
@@ -11,41 +13,56 @@ import{ProdutoService} from '../service/produto.service'
 })
 export class ProdutosComponent implements OnInit {
 
-  categoria:CategoriaModel = new CategoriaModel()
-  listCategoria: CategoriaModel[]
+  listProduto: ProdutoModel[] = []
+  nomeProduto: string
 
-  produto: ProdutoModel = new ProdutoModel()
-  listProduto:ProdutoModel[]
-  idCategoria:number
-  idProduto:number
+  listCategoria: CategoriaModel[] = []
+  nomeCategoria: string
 
   constructor(
     private categoriaService: CategoriaService,
-    private produtoService : ProdutoService
+    private produtoService: ProdutoService,
+    private route: ActivatedRoute
   ) { }
 
-  ngOnInit()
-   {  
-     window.scroll(0,0)
-     this.findAllCategorias()
-     this.findAllProduto()
+  ngOnInit() {
+    window.scroll(0, 0)
+    this.findProdutoCategoria("")
+    this.findAllCategoria()
+
+    this.nomeCategoria = this.route.snapshot.params['categoria']
+    console.log("nomeCategoria" + this.nomeCategoria)
+
+    if (this.nomeCategoria == null) {
+      this.findAllProduto()
+    } else {
+      this.findProdutoCategoria(this.nomeCategoria)
+    }
   }
- 
-  findAllCategorias(){
-    this.categoriaService.getAllCategoria().subscribe((resp:CategoriaModel[]) => {
-      this.listCategoria = resp
-    })
-  }
-  findAllProduto(){
-    this.produtoService.getAllProduto().subscribe((resp:ProdutoModel[]) => {
+
+  findAllProduto() {
+    this.produtoService.getAllProduto().subscribe((resp: ProdutoModel[]) => {
       this.listProduto = resp
     })
   }
-    findByIdCategoria() {
-    this.categoriaService.getByIdCategoria(this.idCategoria).subscribe((resp: CategoriaModel) => {
-      this.categoria = resp
+  findAllCategoria() {
+    this.categoriaService.getAllCategoria().subscribe((resp: CategoriaModel[]) => {
+      this.listCategoria = resp
     })
   }
-  
-
+  findProdutoCategoria(categoria: string) {
+    this.produtoService.getByProdutoCategoria(categoria).subscribe((resp: ProdutoModel[]) => {
+      this.listProduto = resp
+      console.log(JSON.stringify(resp))
+    })
+  }
+  findByNomeProduto() {
+    if (this.nomeProduto == null || this.nomeProduto == '') {
+      this.findAllProduto()
+    } else {
+      this.produtoService.getByNomeProduto(this.nomeProduto).subscribe((resp: ProdutoModel[]) => {
+        this.listProduto = resp
+      })
+    }
+  }
 }

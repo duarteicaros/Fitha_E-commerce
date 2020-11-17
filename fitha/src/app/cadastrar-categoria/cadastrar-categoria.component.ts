@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CategoriaService } from '../service/categoria.service';
 import { CategoriaModel } from '../model/Categoria';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment.prod';
+import { AlertasService } from '../service/alertas.service'
 
 @Component({
   selector: 'app-cadastrar-categoria',
@@ -14,14 +16,22 @@ export class CadastrarCategoriaComponent implements OnInit {
   listCategoria: CategoriaModel[]
   idCategoria: number
 
+
+
   constructor(
     private categoriaService: CategoriaService,
-    private router: Router) { }
+    private router: Router,
+    private alert: AlertasService
+  ) { }
 
   ngOnInit() {
     this.findAllCategorias()
-  }
 
+    //if (environment.admin == false) {
+    //  alert("SEM PERMISSÃO!!")
+    //  this.router.navigate(["/home"])
+    // }
+  }
   findAllCategorias() {
     this.categoriaService.getAllCategoria().subscribe((resp: CategoriaModel[]) => {
       this.listCategoria = resp
@@ -35,15 +45,15 @@ export class CadastrarCategoriaComponent implements OnInit {
   }
 
   cadastrar() {
-    if (this.categoria.nome == null) {
-      alert("A categoria não pode estar vazia")
-    } else {
-      this.categoriaService.postCategoria(this.categoria).subscribe((resp: CategoriaModel) => {
-        this.categoria = resp
-        this.categoria = new CategoriaModel()
-        alert("Categoria cadastrada com sucesso")
-      })
-    }
+    //this.categoria.categoriaNome = "produto500"
+    this.categoriaService.postCategoria(this.categoria).subscribe((resp: CategoriaModel) => {
+      this.categoria = resp
+      this.categoria = new CategoriaModel()
+      this.findAllCategorias()
+      this.alert.showAlerSuccess("Categoria cadastrada com sucesso!")
+
+    })
+
 
   }
 }
